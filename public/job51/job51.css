@@ -1,0 +1,66 @@
+/*登录页安全提示*/
+.listLogin-statement{ font-size: 12px; color: #ff3300; background-color: #fefcee; border: #f3bb53 solid 1px; margin-top: 8px;}
+.listLogin-statement img{ vertical-align: middle; margin: -4px 0 0 4px; *margin: 0 0 0 4px;}
+.listLogin-statement a{ color: #5191ce; text-decoration: underline;}
+.listLogin-statement a:hover{color: #ff3300;}
+.paper-text-grey{ color:#b3b3b3; margin-top:10px;}
+
+/*2017验证方式*/
+.yz-btn{ display: block; width: 250px; height: 38px;line-height: 38px; margin:-4px; padding-left: 14px;color: #b4b4b4!important;}
+.yz-btn-on{color: #3b3b3b!important;background: url(http://img01.51jobcdn.com/imehire/ehire2007/defaultnew/image/validate/gou.png) 74px 8px no-repeat;}
+.yz-down{position: relative; margin:0 -5px;}
+.yz-main{position: absolute; top: 34px; left: 0; background-color: #fff; border: #cecece solid 1px;padding: 9px;}
+.yz-pic-s{ position: relative; padding: 10px 0;width:330px;}
+.yz-pic-b{*margin-top: 8px;width:330px;}
+.yz-pic-swrap{position: absolute; overflow: hidden; top: 4px; right: 0px;}
+.yz-pic-swrap i{display: block; float: left; width: 22px; height: 40px;}
+.s-pic-part01{background-position: -264px 0px;}
+.s-pic-part02{background-position: -154px 0px;}
+.s-pic-part03{background-position: -44px 0px;}
+.s-pic-part04{background-position: -242px 0px;}
+.s-pic-part05{background-position: -110px 0px;}
+.s-pic-part06{background-position: -176px 0px;}
+.s-pic-part07{background-position: -88px 0px;}
+.yz-pic-wrap{ overflow: hidden;}
+.yz-pic-wrap i{display: block; float: left; width: 6.666%; height: 58px; cursor: pointer;}
+.pic-part01{background-position: -66px -40px;}
+.pic-part02{background-position: -286px -40px;}
+.pic-part03{background-position: -66px -98px;}
+.pic-part04{background-position: -44px -40px;}
+.pic-part05{background-position: -154px -40px;}
+.pic-part06{background-position: -22px -40px;}
+.pic-part07{background-position: -88px -98px;}
+.pic-part08{background-position: -198px -40px;}
+.pic-part09{background-position: -198px -98px;}
+.pic-part10{background-position: -264px -98px;}
+.pic-part11{background-position: -308px -40px;}
+.pic-part12{background-position: -176px -40px;}
+.pic-part13{background-position: -0px -98px;}
+.pic-part14{background-position: -132px -98px;}
+.pic-part15{background-position: -132px -40px;}
+.pic-part16{background-position: -176px -98px;}
+.pic-part17{background-position: -88px -40px;}
+.pic-part18{background-position: -154px -98px;}
+.pic-part19{background-position: -220px -40px;}
+.pic-part20{background-position: -264px -40px;}
+.pic-part21{background-position: -110px -40px;}
+.pic-part22{background-position: -242px -98px;}
+.pic-part23{background-position: -286px -98px;}
+.pic-part24{background-position: -0px -40px;}
+.pic-part25{background-position: -242px -40px;}
+.pic-part26{background-position: -44px -98px;}
+.pic-part27{background-position: -220px -98px;}
+.pic-part28{background-position: -22px -98px;}
+.pic-part29{background-position: -308px -98px;}
+.pic-part30{background-position: -110px -98px;}
+.yz-bot-fn{height: 40px; line-height: 40px; padding-top: 10px;}
+.yz-bot-btn{ float: right; display: inline-block; width: 110px; height: 40px; line-height: 40px; text-align: center; background-color: #838383; color: #fff!important;}
+.yz-bot-fn .on{ background-color: #5191ce;}
+.yz-numble-step{position: relative;}
+.yz-numble-step span{position: absolute; display: inline-block; width: 20px; height: 20px; background-image: url(http://img01.51jobcdn.com/imehire/ehire2007/defaultnew/image/validate/yz-numble.png);}
+.yz-step1{ background-position: 0 0;}
+.yz-step2{ background-position: 0 -20px;}
+.yz-step3{ background-position: 0 -40px;}
+.yz-step4{ background-position: 0 -60px;}
+.yz-loding{position: relative;}
+.yz-loding img{ position: absolute; left: 140px; top: 30px;}

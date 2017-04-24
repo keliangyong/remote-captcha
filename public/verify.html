@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Login Iframe</title>
+	<link href="./css/verify.css" rel="stylesheet">
+</head>
+
+<body>
+	<h2>远程验证系统</h2>
+
+	<div id="main">
+		<!-- 普通验证码 -->
+		<div v-if="captType == 'simple'">
+			<img id="captcha-img" :src="captchaSrc" alt="" @click="getCaptcha">
+			<br>
+			<input type="text" id="captcha" autocomplete="off" placeholder="请输入验证码" v-model.trim="captcha" :disabled="islogining">
+		</div>
+
+		<!-- 图片验证码 -->
+		<div v-if="captType == 'image'">
+			<iframe id="capIframe" :src="captchaSrc" frameborder="0" scrolling="no" border="0" marginHeight="0" marginWidth="0"></iframe>
+		</div>
+
+		<div id="errInfo">{{ errInfo }}</div>
+
+		<span id="submit" @click.prevent="validated()">确定</span>
+	</div>
+
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/vue.js"></script>
+	<script src="./js/axios.js"></script>
+	<script src="./js/verify.js"></script>
+</body>
+
+</html>

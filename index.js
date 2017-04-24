@@ -1,52 +1,86 @@
 const http = require('http')
-const app = require('http').createServer(handler)
+const querystring = require('querystring')
+const mime = require('mime')
+const app = require('http').createServer(server)
 const io = require('socket.io')(app)
 const fs = require('fs')
-
-
+const socket_handler = require('./socketHandler')
 
 app.listen(9000)
 
-function handler(req, res) {
-  res.writeHead(200, 'ok')
-  zhilian.emit('captcha', 'everyone!');
-  res.end("server on")
-}
-
-var zhilian = io.of('/zhilian')
-zhilian.on('connection', function (socket) {
-
-  socket.on('needVerify', (data) => {
-    var base64Data = data.replace(/^data:image\/\w+;base64,/, "")
-    var dataBuffer = new Buffer(base64Data, 'base64')
+function server(req, res) {
+  if (!req.url.match(/\./) && !req.url.match('getCaptcha') && !req.url.match('submit')) { // 其他无效请求
+    res.writeHead(404, 'Not Found')
+    res.end(`DATA NOT FOUND ${req.url}`)
+  }
+  if (req.url.match(/\./)) {        // 静态资源处理
     Promise.resolve({
-      then: (resolve, reject)=>{
-        fs.writeFile("zhilian.png", dataBuffer, function (err) {
-          if (err) throw err;
+      then: (resolve, reject) => {
+        let url = req.url.split('?')[0]
+        let path = `./public${url}`
+        fs.readFile(path, (err, data) => {
+          if (err) {
+            res.writeHead(404, 'Not Found')
+            res.end(`DATA NOT FOUND ${err.stack}`)
+          } else {
+            res.writeHead(200, 'ok', { 'Content-Type': mime.lookup(path) })
+            res.end(data)
+          }
           resolve()
         })
       }
-    }).then(() => {
-      let title = encodeURIComponent('智联验证码警报!')
-      let desp = encodeURIComponent('请打开以下链接 输入验证码 http://localhost:9000/zhilian')
-      http.get(`http://sc.ftqq.com/SCU7712T47f3ef3e3789492891d0a72acf0817e358fa04a72b753.send?text=${title}&desp=${desp}`, (res)=>{
-        if(res.statusCode !== 200){
-          console.log(`请求失败 状态码：${res.statusCode}`)
-        }
-        res.resume()
-        return
-      })
     })
-  })
+  } else {
+    var query = querystring.parse(req.url.split('?')[1])
+    var channel = query['type']
+    var socketMap = {
+      'job51': job51,
+      'zhilian': zhilian
+    }
+    var socket_client = socketMap[channel]
+    if (req.url.match('getCaptcha')) {            // ajax 获取验证码
+      Promise.resolve({
+        then: (resolve, reject) => {
+          var key = Object.keys(socket_client.sockets)[0]
+          if (key) {
+            socket_client.sockets[key].once('getCaptcha', (data) => {
+              res.writeHead(200, 'ok', { 'Content-Type': 'image/png;charset=US-ASCII' })
+              res.end(data)
+            })
+          } else {
+            res.writeHead(404, 'Not Found')
+            res.end()
+          }
+          resolve()
+        }
+      })
+      socket_client.emit('needCaptcha')
+    } else if (req.url.match('submit')) {         // ajax 提交验证码
+      Promise.resolve({
+        then: (resolve, reject) => {
+          var key = Object.keys(socket_client.sockets)[0]
+          socket_client.sockets[key].once('submitResult', (data) => {
+            res.writeHead(200, 'ok', { 'Content-Type': 'application/json' })
+            response = JSON.stringify({
+              errorcode: data ? 0 : 1,
+              errorinfo: ""
+            })
+            res.end(response)
+            resolve()
+          })
+        }
+      })
+      socket_client.emit('verify', query['captcha'])
+    }
+  }
+}
 
-  socket.on('success', () => {
-    socket.disconnect(false)
-  })
-  
+var zhilian = io.of('/zhilian') // 智联socket
+zhilian.on('connection', function (socket) {
+  socket_handler(socket, 'zhilian')
 })
 
-let job51 = io.of('/job51');
+var job51 = io.of('/job51')   // job51 socket
 job51.on('connection', function (socket) {
-  console.log('job51 connected');
-  job51.emit('hi', 'everyone!');
-});
+  socket_handler(socket, 'job51')
+})

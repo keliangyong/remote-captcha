@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Examples</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link href="captcha.css" rel="stylesheet">
+</head>
+<body>
+<!-- 	<div class="captcha" id="captcha">
+		<div class="captcha-container">
+			<div class="captcha-header">
+				<span class="txt">请按顺序点击大图中的文字<br>（点击数字可重选）</span>
+				<div class="captcha-sm-img" id="captcha-sm-img"></div>
+			</div>
+			<div class="captcha-body" id="captcha-body">
+				<div class="captcha-img-sprites" id="captcha-img-sprites">
+				</div>
+			</div>
+			<div class="captcha-footer">
+				<a href="javascript:;" id="captcha-submitCode" class="btn btn-primary btn-disabled">验　证</a>
+				<a href="javascript:;" id="captcha-reload" class="captcha-reload">
+					<i class="icons icons-reload"></i>
+				</a>
+				<a href="javascript:;" id="captcha-info">点击刷新图片</a>
+			</div>
+		</div>
+	</div> -->
+
+
+
+
+
+
+
+
+		<div class="yz-down" id="divValidateHtml" style="">
+            <div class="yz-main">
+                <div class="yz-pic-s">请按顺序点击大图中的文字
+                    <div class="yz-pic-swrap" id="divVPhrase">
+                        <i class="s-pic-part01"></i>
+                        <i class="s-pic-part02"></i>
+                        <i class="s-pic-part03"></i>
+                        <i class="s-pic-part04"></i>
+                        <i class="s-pic-part05"></i>
+                        <i class="s-pic-part06"></i>
+                        <i class="s-pic-part07"></i>
+                    </div>
+                </div>
+                <div class="yz-pic-b">
+                    <div class="yz-pic-wrap" id="divVImage">
+                    <div class="yz-numble-step" id="divVStep">
+                            <span class="yz-step1" style="top:10px; left:20px;display:none;"></span>
+                            <span class="yz-step2" style="top:20px; left:50px;display:none;"></span>
+                            <span class="yz-step3" style="top:10px; left:80px;display:none;"></span>
+                            <span class="yz-step4" style="top:20px; left:110px;display:none;"></span>
+                        </div>
+                        <div class="yz-loding" id="divLoading" style="display: none;">
+                            <img src="http://img01.51jobcdn.com/imehire/ehire2007/defaultnew/image/commonnew/loading.gif">
+                        </div>
+                        <i class="pic-part01"></i>
+                        <i class="pic-part02"></i>
+                        <i class="pic-part03"></i>
+                        <i class="pic-part04"></i>
+                        <i class="pic-part05"></i>
+                        <i class="pic-part06"></i>
+                        <i class="pic-part07"></i>
+                        <i class="pic-part08"></i>
+                        <i class="pic-part09"></i>
+                        <i class="pic-part10"></i>
+                        <i class="pic-part11"></i>
+                        <i class="pic-part12"></i>
+                        <i class="pic-part13"></i>
+                        <i class="pic-part14"></i>
+                        <i class="pic-part15"></i>
+                        <i class="pic-part16"></i>
+                        <i class="pic-part17"></i>
+                        <i class="pic-part18"></i>
+                        <i class="pic-part19"></i>
+                        <i class="pic-part20"></i>
+                        <i class="pic-part21"></i>
+                        <i class="pic-part22"></i>
+                        <i class="pic-part23"></i>
+                        <i class="pic-part24"></i>
+                        <i class="pic-part25"></i>
+                        <i class="pic-part26"></i>
+                        <i class="pic-part27"></i>
+                        <i class="pic-part28"></i>
+                        <i class="pic-part29"></i>
+                        <i class="pic-part30"></i>
+                    </div>
+
+                    <img alt="" id="imgPhrase" style="display:none;" src="">
+                </div>
+                <div class="yz-bot-fn">
+                    <a href="javascript:void(0);" class="yz-bot-btn" id="btnValidate">验 证</a>
+                    <a href="javascript:void(0);" id="btnVRefresh">刷新图片</a>
+                    <span class="red" style="display:none">验证失败，<b>1</b>秒后刷新</span>
+                </div>
+
+            </div>
+        </div>
+
+	<script src="../../js/lib/jquery-1.10.2.min.js"></script>
+	<script src="../../js/lib/jquery.cookie.js"></script>
+	<script src="../../js/lib/common.js"></script>
+	<script src="./captcha.js"></script>
+</body>
+</html>

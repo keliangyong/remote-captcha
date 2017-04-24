@@ -1,0 +1,27 @@
+body{
+	padding: 30px 30px 50px 30px;
+	text-align: center;
+}
+#errInfo{
+	margin: 7px 0 10px 0;
+	font-size: 14px;
+	height: 28px;
+	text-align: center;
+}
+#capIframe{
+	width: 305px;
+    height: 250px;
+}
+img{
+	cursor: pointer;
+}
+input{
+	margin-top: 20px;
+}
+#submit{
+	font-size: 14px;
+	padding: 5px 20px; 
+	cursor: pointer;
+	color: #fff;
+	background-color: #1cb78c;
+}
