@@ -6,7 +6,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": true,
-            "pythonPath": "E:\\socket-demo\\python-client\\venv\\Scripts\\python.exe",
+            "pythonPath": "E:\\remote-captcha\\python-client\\venv\\Scripts\\python.exe",
             "program": "${file}",
             "debugOptions": [
                 "WaitOnAbnormalExit",

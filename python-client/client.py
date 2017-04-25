@@ -38,12 +38,12 @@ if __name__ == '__main__':
     socketIO = SocketIO('localhost', 9000)
 
     socket_job51 = socketIO.define(job51, '/job51')
-    # socket_job51.emit('alarm')
+    socket_job51.emit('alarm')
     socket_job51.on('needCaptcha', socket_job51.on_needCaptcha)
     socket_job51.on('verify', socket_job51.on_verify)
 
     socket_zhilian = socketIO.define(zhilian, '/zhilian')
-    # socket_zhilian.emit('alarm')
+    socket_zhilian.emit('alarm')
     socket_zhilian.on('needCaptcha', socket_zhilian.on_needCaptcha)
     socket_zhilian.on('verify', socket_zhilian.on_verify)
 
