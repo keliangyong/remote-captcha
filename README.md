@@ -8,5 +8,5 @@
 # 使用
 * npm install 
 * node 运行 index.js
-* python 运行 python-client 
+* python 运行 python-client/client.py 
 * 微信接收到验证提示 点开链接进行验证 
